@@ -1,0 +1,78 @@
+<div class="container-fluid" style=" width: 100%;">
+
+    <div class="row" style='height:300px'>
+        <div class="col-12 bgimg">
+            <div style="position: absolute;top:30% ;left:50%;color:#fff;font-weight: 800;font-size: 40px;">
+                <h1>Welcome To DocTourism</h1>
+                <h1>online Reservation for medical tourism</h1>
+            </div>
+           
+        </div>
+    </div>
+
+
+
+    <div class="container py-3 mt-5 px-0 ">
+        <div class="row  mx-5">
+            <div class="col-md-4 doc-img ">
+                <div class="img ">
+                    <img class="img-fluid mb-2" style="height: 280px;" src= "{{DData?.profileIMG}}">
+                </div>
+                <div class="rating px-3 py-3 text-center">
+                    <h3 style=" font-size: 1.5rem;color: #068efe;font-weight: 100;"> Dr / {{DData?.username |titlecase}} Kamel Nohe
+                    </h3>
+                        <ngb-rating class=" rate" [readonly]="true" [max]="5" [(rate)]=DData.rate>
+                    </ngb-rating>
+                </div>
+            </div>
+            <div class="col-md-8 doc-about ">
+                <div class="container descrip">
+                    <div class="row ">
+                        <h2 class="header"><i class="fa fa-exclamation" aria-hidden="true"></i>
+                            About Doctor</h2>
+
+
+                        <div class="col-md-12 py-3 parag">
+                            <p class="briefSummery">{{DData?.briefSummery | titlecase | slice:0:90 }} <a
+                                    (click)="ReadMore()">
+                                    <ng-container *ngIf="!readMore; else elseTemplate">
+                                        <span style="color:#09c; padding-left:.5rem ; font-weight: 700">Read
+                                            more...</span>
+                                    </ng-container>
+                                    <ng-template #elseTemplate>
+                                        <span>{{DData?.briefSummery|slice:0:300}}</span> <span
+                                            style="color:#09c; padding-left:.5rem ; font-weight: 700;">Read
+                                            less...</span>
+
+                                    </ng-template>
+                                </a></p>
+                        </div>
+                    </div>
+                    <div class="row py-3">
+
+                        <h2 class="header"><i class=" fas fa-map-marker-alt" style="font-size: 30px;padding-right: 30px"></i>Location</h2>
+                        <div class="col-md-12 py-2 parag">
+                            <p>Location : {{DData?.location.location |titlecase}} - {{DData?.location.area|titlecase}} </p>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row py-0 my-0">
+                        <ng-container *ngIf="this.myAuthService.getType()=='patient'; else elseTemplate2">
+                            <div class="col-md-12">
+                                <button class="btn btn-danger px-5">
+                                    <a [routerLink]="[ '/Diagnosis',DData._id ]"target="_blank">Book</a></button>
+                            </div>
+                        </ng-container>
+                        <ng-template #elseTemplate2>
+                            <div class="col-md-12 ">
+                                <button class="btn btn-danger px-5" disabled><a>Book</a></button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,121 @@
+<div class="container-fluid">
+    <div class="row" style='height:300px'>
+        <div class="col-12 bgimg">
+            <div style="position: absolute;top:30% ;left:50%;color:#fff;font-weight: 800;font-size: 40px;">
+                <h1>Welcome To DocTourism</h1>
+                <h1>online Reservation for medical tourism</h1>
+            </div>
+            <div style="position: relative; top:80%">
+                <div class="container py-3 mx-auto" style="background-color: #fff;box-shadow:1px 3px 5px rgba(196, 196, 196, 0.712);border-radius: 5px;">
+                    <div class="row mx-auto">
+                        <div class="col-lg-3 ">
+                            <label> Choose City </label>
+                            <select class="form-control" (change)='getAreas($event)'>
+                                <option selected value="all">All</option>
+                                <option  *ngFor="let c of cities" value={{c.name_en}}>{{c.name_en |titlecase}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label> Choose Area </label>
+                                <select [(ngModel)]="area" class="form-control">
+                                    <option selected >Select area</option>
+                                    <option  *ngFor="let a of areas" value={{a.name_en}}>{{a.name_en |titlecase}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label>Doctor Name</label>
+                                <input type="text" class="form-control mb-2" (keyup)="handleFilter($event)" placeholder="Jane Doe">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 my-3">
+                            <div class="form-group ">
+                                <button class="btn form-control" style="background-color: #0077dfb3;border: none; color:#fff" (click)="getDoctors()">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid my-5 py-5" style="padding:0px 15rem;">
+    <div class="row">
+        <div class="col-xl-3 px-4">
+
+            <div class="filter my-3">
+                <h2>Filter By</h2>
+                <ul>
+                    <li>
+                        <!-- Default unchecked -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                            <label class="custom-control-label" for="defaultUnchecked1">Rate &gt; 3</label>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- Default unchecked -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios">
+                            <label class="custom-control-label" for="defaultUnchecked2">1 &lt; Rate &gt; 0</label>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- Default unchecked -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios">
+                            <label class="custom-control-label" for="defaultUnchecked3">4 &lt; Rate &gt; 5</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <h2>Gender</h2>
+                <ul>
+                    <li>
+                        <!-- Default unchecked -->
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input inline" id="defaultUnchecked4" name="defaultExampleRadios" (click)="genderFilter('male')">
+                            <label class="custom-control-label" for="defaultUnchecked4">Male </label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input inline" id="defaultUnchecked5" name="defaultExampleRadios"(click)="genderFilter('female')">
+                            <label class="custom-control-label" for="defaultUnchecked5">Female </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="col-xl-9">
+            <a *ngFor="let i of filteredArray | paginate: config" [routerLink]="['/Dprofile',i._id]">
+                <div class="card my-2" style="max-width: 50rem;max-height: 11rem;">
+                    <div class="row no-gutters">
+                        <div class="col-md-3">
+                            <img src="{{i.profileIMG}}" class="card-img" style="height: 10.8rem;" alt="Doctor Image">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body py-2">
+                                <h1 class="card-title my-0">{{i.username | titlecase}}</h1>
+                                <h4>{{i.title | titlecase}}</h4>
+                                <p class="card-text my-0">{{i.briefSummery |slice: 0:35}} .. <a [routerLink]="['/Dprofile',i._id]"> Read More</a></p>
+                                <p class="location my-0">{{i.location.location |titlecase}} - {{i.location.area |titlecase}}</p>
+                                <ngb-rating [max]='5' [(rate)]=i.rate [readonly]="true"></ngb-rating>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center my-0 py-4">
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+    </pagination-controls>
+</div>

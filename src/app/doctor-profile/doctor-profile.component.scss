@@ -1,0 +1,116 @@
+body{
+    background-color: red;
+}
+.doc-img {
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+img {
+    border-radius: 5px;
+}
+.doc-about {
+    background-color: #f3f7f3;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.reviews {
+    background-color: #f3f7f3;
+    border-radius: 5px;
+    border-bottom:1px solid #aaa;
+}
+
+.rating {
+    margin-top: 10px;
+    padding: 2px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    background-color: #f3f7f3;
+}
+
+.descrip {
+    padding: 0px;
+}
+
+.parag {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-left: 2px solid #068efe;
+}
+// .parag:after {
+//     content: ""; /* This is necessary for the pseudo element to work. */ 
+//     display: block; /* This will put the pseudo element on its own line. */
+//     margin: 0 auto; /* This will center the border. */
+//     width: 50%; /* Change this to whatever width you want. */
+//     padding-top: 10px; /* This creates some space between the element and the border. */
+//     border-bottom: 1px solid #aaa; /* This creates the border. Replace black with whatever color you want. */
+// }
+
+.fa-star{
+    color:gold
+}
+
+.rate{
+    color: gold;
+    font-size: 1.5rem;
+}
+.briefSummery{
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: oblique;
+    padding: .5rem 1rem;
+}
+.header{
+    color: #068efe;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 0px .3rem;
+    i{
+         color:Gold;
+         font-size: 35px; 
+         font-weight: 800;
+         padding: 10px;
+    }
+}
+
+.btn-danger a{
+    color:#fff;
+    font-weight:900;
+    text-decoration: none;
+    padding: 0px 1rem;
+    font-size: 1rem;
+    word-spacing: 3px;
+}
+
+.reviews {
+    .parag2 p{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    h2{
+        font-size: 1rem;
+        color: #068efe;
+    }
+    ngb-rating{
+        font-size: 1.5rem;
+        color: gold;
+    }
+    
+    .by {
+        font-weight: 100;
+        color: gray;
+    }
+}
+
+
+.bgimg {
+    background: linear-gradient(rgba(1, 96, 178, 0.7), rgba(1, 96, 178, 0.7)),
+      /* bottom, image */url(../../assets/images/1070305_Russel_04_0136.jpg);
+    background-size: 100%100%;
+    background-repeat: no-repeat;
+  }

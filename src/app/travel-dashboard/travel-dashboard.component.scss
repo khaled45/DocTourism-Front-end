@@ -1,0 +1,160 @@
+
+
+
+:host {
+  > .container {
+      max-width: 1264px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      background: none;
+  }
+  ::ng-deep {
+      .mat-tab-group{
+          height: 100%;
+          flex-direction: row;
+          
+      }
+      .mat-tab-list {
+          width:13.5rem;
+          box-shadow: 5px 5px 5px rgba(0,0,0,0.7) !important;
+      }
+      .mat-tab-header {
+          border-bottom: none;
+          
+      }
+      .mat-tab-header-pagination {
+          display: none !important;
+      }
+      .mat-tab-labels {
+          flex-direction: column;
+          background-color: rgb(46, 46, 46);
+          color: #fff;
+        
+          
+      }
+      .mat-tab-label.mat-tab-label{
+        color: #fff!important;
+        padding: 2rem!important;
+
+      }
+      .mat-tab-label.mat-tab-label-active {
+          background-color: rgb(46, 46, 46);
+          color: #fff;
+          border-bottom: 2px solid #289cff;
+      }
+     
+     
+      .mat-ink-bar {
+          height: 100%;
+          width: 0px!important;
+          left: 100% !important;
+          background:linear-gradient(#289cff,#289cff) !important;
+          
+      }
+      .mat-tab-body-wrapper {
+          flex: 1 1 auto;
+          transition: all 0s ease-in !important;
+          
+      }
+  }
+}
+
+.addProgram {
+    mat-form-field{
+        margin: auto;
+        width: 50%;
+        display: inline-table;
+        padding: 0rem 5rem;
+        input {
+            border-radius: 1px solid red;
+        }
+    }
+   
+  
+    h1{
+        font-size: 1.25srem;
+        font-weight: bold;
+        color: #0160b2 ;
+        margin-bottom: 1.25rem;
+        margin-top: 1rem;
+    }
+        
+    
+}
+
+
+.card{
+    box-shadow: 0px 0px 0px red !important;
+    border: 0px solid red;
+    .card-footer{
+        border: 0px solid red;
+        background-color: transparent;
+    }
+}
+
+
+//////// card Program
+
+.cardd {
+    background-color: #f3f2f2;
+    color: #289cff;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 3px;
+    border-left: none;
+    border-right: none;
+}
+.cardd:hover {
+    border-left: none;
+    border-right: none;
+    box-shadow: 0px 0px 6px 0px #cecece;
+}
+.card-img {
+    overflow: hidden;
+    box-shadow: 1px 1px 5px 0px rgba(115, 115, 115, 1);
+    cursor: pointer;
+}
+.card-img img {
+    border: none;
+    transform: scale(1.1, 1.1);
+}
+.card-img:hover > img {
+    transform: scale(1, 1);
+}
+
+.card-body {
+    border-right: 1px dotted rgba(115, 115, 115, 0.5);
+}
+.description p {
+    font-size: 15px;
+    font-weight: 200;
+    color: rgb(115, 115, 115);
+}
+
+.img-fluid2 {
+    margin-top: 10px;
+    width: 90%;
+    height: 75%;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+.category {
+    height: 170px;
+}
+
+.modal-body{
+    h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #289cff;
+    }
+    p{
+        font-size: 1rem;
+        font-weight: 200;
+        font-style: oblique;
+        color: rgba(128, 128, 128, 1);
+
+    }
+}

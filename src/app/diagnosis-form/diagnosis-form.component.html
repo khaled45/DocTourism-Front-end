@@ -1,0 +1,109 @@
+<div class="container mx-auto" style="background-color: #fff;margin:100px;">
+    <div class="row">
+        <div class="col-12 py-2">
+            <h2 class="py-2" style="color: #235a88;border-bottom: 2px solid #235a88; width: 14%;">Diagnosis Form :
+            </h2>
+        </div>
+    </div>
+    <div class='container px-5'>
+        <div class="row px-4 mx-auto">
+            <h3 class="step-head"><span style="font-size: 26px;">Your Main Problem : </span></h3>
+            <div class="container px-5">
+                <div class="row py-3 px-2">
+                    <h4> <i class="far fa-arrow-alt-circle-right"></i> Pick What You Want To Do</h4>
+                </div>
+                <div class="row px-5">
+                    <div class="col-lg-12 col-md-12"
+                        *ngFor="let mp of ['pediatrics','Operative','Crown_Bridges','RCT','Scalling','Ortho','Cosmetics','Check_Up']">
+                        <input class="form-check-input" type="checkbox" value="{{mp}}"
+                            (click)="getMainProblem($event)">{{mp}}
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <input class="form-check-input" type="checkbox" (click)="OnOther()">Other
+                        <mat-form-field *ngIf="others" class="example-full-width">
+                            <mat-label>write down any other main problem</mat-label>
+                            <input matInput type='text' (change)='getMainProblem($event)'>
+                        </mat-form-field>
+
+                    </div>
+
+                    <hr class="container mx-auto">
+                </div>
+                <div class="row py-3 px-2">
+                    <h4><i class="far fa-arrow-alt-circle-right"> </i> Little Description About Main Problem</h4>
+                </div>
+                <div class='row px-5'>
+                    <mat-form-field class="example-full-width">
+                        <mat-label> Descripe What You want to do</mat-label>
+                        <textarea matInput placeholder="Ask doctor what you need"
+                            [(ngModel)]="this.MP_object.text_problem"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <h3 class="step-head"><span style="font-size: 26px;">Your Medical history :</span> </h3>
+            <div class="container px-5">
+                <div class="row py-3 px-2">
+                    <h4><i class="far fa-arrow-alt-circle-right"> </i>Check What you Complian About</h4>
+                </div>
+                <div class="row px-5">
+                    <div class="col-lg-12 col-md-12 py-1"
+                        *ngFor="let mh of ['Heart_disease','Hepatitis','Diabetes','Blood_pressure','Bleeding_tendency','Allergy','Radiotheraby','Kindney_diseases','Pregnancy']">
+                        <input class="form-check-input" type="checkbox" value="{{mh}}"
+                            (click)="getMedicalHitory($event)">{{mh}}
+                    </div>
+                    <hr class="container mx-auto">
+                </div>
+                <div class="row px-2">
+                    <h4><i class="far fa-arrow-alt-circle-right"> </i> Answer the following Questions </h4>
+                </div>
+                <div class="row px-5">
+                    <div class="contaniner col-lg-12 col-md-12 py-1" *ngFor="let q of DData.Questions;let i = index">
+
+                        <ng-container *ngIf="q.type == 'checkbox'; else elseTemplate">
+
+                            <input type='checkbox' class="form-check-input" value="{{q.question}}"
+                                (click)='addDiagnosis($event)'>{{q.question}}
+
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>{{q.question}}</mat-label>
+                                <input matInput type='text' (change)='addDiagnosis($event)'>
+                            </mat-form-field>
+                        </ng-template>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+            <h3 class="step-head"><span style="font-size: 26px;">Your Available Time : </span></h3>
+            <div class="container px-5">
+                <div class="row py-3 px-2">
+                    <h4><i class="far fa-arrow-alt-circle-right"> </i> Give Us Your Free Duration To visit Us</h4>
+                </div>
+                <div class="row px-4">
+                    <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+                        outsideDays="hidden">
+                    </ngb-datepicker>
+
+                    <ng-template #t let-date let-focused="focused">
+                        <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)"
+                            [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date"
+                            (mouseleave)="hoveredDate = null">
+                            {{ date.day }}
+                        </span>
+                    </ng-template>
+                </div>
+            </div>
+            <div>
+            </div>
+            <div class='container py-3 px-4 float-right'>
+                <button class="float-right btn"
+                    style="font-size:15px; color:#fff;font-weight: 600; padding:10px 20px;border-radius: 5px; background-color:#ed1b24"
+                    (click)="sendDiagnosis()">Send Diagnosis</button>
+            </div>
+            <div class="clear-fix"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div
+  *ngIf="myAuthService.IsHidden"
+  style="
+    z-index: 112121;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 100%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.26);
+    background-color: #0160b2;
+    height: 3.5rem;
+    padding: 0.5rem 2rem;
+  "
+>
+  <a
+    class="my-btn3 float-right"
+    [matMenuTriggerFor]="menu"
+    style="
+      padding: 0.5rem;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background-color: #015fb2;
+    "
+    ><i class="fas fa-user" style="color: #fff; font-size: 1.25rem;"></i
+  ></a>
+  <mat-menu #menu="matMenu">
+    <a
+      style="color: #000;"
+      class="item"
+      mat-menu-item
+      (click)="myAuthService.logout()"
+      [routerLink]="['/']"
+      >Logout</a
+    >
+    <mat-slide-toggle *ngIf="getUserType()" [(ngModel)]="isChecked" (click)="vactionMode()"
+      >Vacation mode:{{ isChecked }}</mat-slide-toggle
+    >
+  </mat-menu>
+</div>
+
+<app-nav *ngIf="!myAuthService.IsHidden"></app-nav>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!myAuthService.IsHidden"></app-footer>

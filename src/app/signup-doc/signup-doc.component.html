@@ -1,0 +1,175 @@
+<div class="container-fluid py-5 " style="  background-color: rgb(2, 117, 216);">
+
+    <mat-horizontal-stepper #stepper [linear]="true" class="formSignUp my-5">
+        <mat-step [stepControl]="firstFormGroup" [optional]=false>
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel><span class="head">Personal Data</span></ng-template>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" [(ngModel)]="username" formControlName="nameCtrl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <input matInput type="number" placeholder="Phone" [(ngModel)]="phone" formControlName="phoneCtrl"
+                        required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <mat-select [(ngModel)]="location" formControlName="locationCtrl" required>
+                        <mat-option *ngFor="let c of cities" [value]="c.name_en" (click)="getAreas(c.name_en)">
+                            {{c.name_en | titlecase}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Area</mat-label>
+                    <mat-select [(ngModel)]="area" formControlName="areaCtrl" required>
+                        <mat-option *ngFor="let a of areas" [value]="a.name_en">
+                            {{a.name_en | titlecase}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select [(ngModel)]="gender" formControlName="genderCtrl">
+                        <mat-option *ngFor="let g of ['male','female']" [value]='g'>
+                            {{g | titlecase}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type='email' placeholder="email" formControlName="emailCtrl" [(ngModel)]="email"
+                        required email>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password"
+                        formControlName="passwordCtrl" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
+                        <mat-icon *ngIf="hide">visibility_off</mat-icon>
+                        <mat-icon *ngIf="!hide">visibility</mat-icon>
+
+                    </button>
+                </mat-form-field>
+
+
+                <div>
+                    <button class="btn btn-primary" mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup" [optional]=false>
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel><span class="head">A Brief About Your History</span></ng-template>
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Brief History</mat-label>
+                    <textarea cols="600" rows="5" class="boxsizingBorder" matInput placeholder="Brief History"
+                        [(ngModel)]="briefSummery" formControlName="briefSummeryCtrl" required></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>title</mat-label>
+                    <input matInput placeholder="title" [(ngModel)]="title" formControlName="titleCtrl" required>
+                </mat-form-field>
+                <div class="button">
+                    <button class="btn btn-info" mat-button matStepperPrevious>Previous</button>
+                    <button class="btn btn-primary" mat-button matStepperNext>Next</button>
+                </div>
+
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="dynamicForm" [optional]=false>
+            <ng-template matStepLabel><span class="head">Add Questions</span>
+            </ng-template>
+            <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Number of Questions</label>
+                                <select formControlName="numberOfQuestions" class="form-control"
+                                    (change)="onChangeQuestions($event)"
+                                    [ngClass]="{ 'is-invalid': submitted && f.numberOfQuestions.errors }">
+                                    <option value=""></option>
+                                    <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.numberOfQuestions.errors" class="invalid-feedback">
+                                    <div *ngIf="f.numberOfQuestions.errors.required">Number of tickets is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngFor="let question of q.controls; let i = index" class="list-group list-group-flush">
+                        <div class="list-group-item">
+                            <h3 class="card-title">Question {{i + 1}}</h3>
+                            <div [formGroup]="question" class="form-row">
+                                <div class="form-group col-6">
+                                    <mat-form-field class="example-form-field">
+                                        <mat-label>Question</mat-label>
+                                        <input matInput type="text" formControlName="question"
+                                            [ngClass]="{ 'is-invalid': submitted && question.controls.question.errors }">
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && question.controls.question.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="question.controls.question.errors.required">question is required
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <mat-form-field>
+                                        <mat-label>Type </mat-label>
+                                        <mat-select formControlName="type" value='text'
+                                            [ngClass]="{ 'is-invalid': submitted && question.controls.question.errors }">
+                                            <mat-option value="text">Text</mat-option>
+                                            <mat-option value="checkbox">True & False</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submitted && question.controls.question.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="question.controls.type.errors.required">question is required</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center button">
+                        <button class="btn btn-info" mat-button matStepperPrevious>Previous</button>
+
+                        <button class="mr-1 btn btn-danger" mat-flat-button color=danger type="reset"
+                            (click)="onReset()">Reset</button>
+                        <button class="btn btn-primary" matStepperNext mat-button>Next</button>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel><span class="head">Done</span>
+            </ng-template>
+            <h2>You are now done.</h2>
+            <p *ngIf="errorData" style="color: red; font-weight: bold;">*Incorrect Input Data*</p>
+            <div class="button">
+                <button class="btn btn-info" mat-button matStepperPrevious>Previous</button>
+
+                <button class="btn btn-success" mat-raised-button color=primary
+                    (click)="Register(content)">register</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+
+</div>
+
+
+<ng-template #content let-modal>
+
+    <div class="modal-body">
+        <p>You Sign Up Successfully &hellip;</p>
+        <p>Admins Will Approve Your Request &hellip;</p>
+    </div>
+</ng-template>
+
+
+
+
+

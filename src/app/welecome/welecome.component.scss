@@ -1,0 +1,43 @@
+.bgimg {
+  background: linear-gradient(rgba(1, 96, 178, 0.6), rgba(1, 96, 178, 0.1)),
+    /* bottom, image */ url(../../assets/images/1070305_Russel_04_0136.jpg);
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.pargraphCard {
+  height: 370px;
+  padding: 10px;
+  padding-top: 0;
+}
+.pargraphCard h1 {
+  color: rgb(23, 170, 219);
+}
+.pargraphCard h4 {
+  color: rgb(23, 170, 219);
+}
+.pargraphCard p {
+  color: rgb(8, 26, 34);
+}
+
+.fa-arrow-alt-circle-up {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: gold;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  z-index: 121212;
+}
+
+@media (max-height: 600px) {
+  .fa-arrow-alt-circle-up {
+    display: none;
+  }
+}

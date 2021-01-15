@@ -1,0 +1,73 @@
+
+ngb-rating{
+    font-size: 1.5rem;
+    color: gold;
+}
+
+.card{
+    &:hover{
+        background-color: #f3f2f2;
+        cursor: grab;
+    }
+}
+.card-body {
+    .card-title{
+        color: #289cff;
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+   h4{
+       color: #289bff77;
+       font-size: 1rem;
+       font-weight: bold;
+   }
+   .card-text{
+       height: 1.5rem;
+   }
+
+   button{
+       padding: 0.2rem 2rem;
+       font-weight: 200;
+       background-color: #289cff;
+       color: #fff;
+
+   }
+    
+}
+
+.filter{
+    position: sticky;
+    top:5rem;
+    padding: 2rem 0px 2rem 2rem;
+    height: 20rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    ul li{
+        list-style-type: none;
+        padding-bottom:.3rem;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #a0a5aabd;
+    }
+    h2{
+        color: #289cff;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+}
+
+.bgimg {
+    background: linear-gradient(rgba(1, 96, 178, 0.7), rgba(1, 96, 178, 0.7)),
+      /* bottom, image */url(../../assets/images/1070305_Russel_04_0136.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+
+.col-xl-9 a{
+    text-decoration: none;
+}
+.card .location{
+    color: #289cff;
+}

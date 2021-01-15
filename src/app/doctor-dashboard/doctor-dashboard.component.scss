@@ -1,0 +1,170 @@
+.fa-star {
+  color: gold;
+}
+
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+.example-box {
+  width: 100%;
+  height: 620px;
+  border: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  margin-right: 25px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.example-box:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.example-boundary {
+  width: 100%;
+  height: 800px;
+  max-width: 100%;
+  // border: dotted #ccc 2px;
+  cursor: move;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.mat-tab-labels {
+  background-color: #068eff !important;
+  border-radius: 5px;
+}
+.mat-tab-label-content {
+  font-size: 1.5rem !important;
+  font-weight: 200;
+  color: #fff;
+  font-variant-caps: all-petite-caps;
+  &:focus {
+    font-weight: bold;
+  }
+}
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: gold !important;
+  height: 1.6px !important;
+  margin: auto !important;
+}
+
+.layer {
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 27%;
+  left:40%;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+.img:hover>.layer {
+  opacity: 1;
+}
+
+mat-tab-group{
+
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+  /* bottom, image */url('../../assets/images/background\ doctor\ dashboard.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+}
+.container-fluid {
+  
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+  /* bottom, image */url('../../assets/images/background\ doctor\ dashboard.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+}
+.mat-typography{
+  
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+  /* bottom, image */url('../../assets/images/background\ doctor\ dashboard.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.doc-img {
+  padding: 2rem 0px;
+  h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  ngb-rating{
+    color: gold;
+    font-size: 1.5rem;
+  }
+}
+
+.doc-about{
+  padding: 2rem 0px;
+  h2{
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-bottom: .5rem;
+    border-bottom: 2px #289cff solid;
+  }
+  .parag p{
+    font-size: 1rem ;
+    font-weight: 200;
+    color: rgba(0, 0, 0, 0.575);
+    font-style: oblique;
+  }
+}
+#profile{
+  background-color: #fff;
+  // border: 1px solid #015fb28c  !important;
+  // border-top:0px solid #015fb28c  !important;
+  box-shadow:1px 10px 25px rgba(0, 0, 0, 0.541) !important;
+}
+
+table{
+  th{
+    font-weight: bold!important;
+  }
+  td{
+    font-size: 1rem!important;
+    font-weight: 200!important;
+
+  }
+}

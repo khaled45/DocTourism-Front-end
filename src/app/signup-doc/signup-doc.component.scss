@@ -1,0 +1,47 @@
+.formSignUp{
+    margin: auto;
+    text-align: center; 
+    width: 70%;
+    height: auto;
+    background-color: #fff
+}
+.head{
+        color: #022f54;
+        font-weight: bold;
+        font-size: 1rem;
+}
+mat-form-field{
+    margin: auto;
+    width: 50%;
+    display: inline-table;
+    padding: 0rem 5rem;
+    input {
+        border-radius: 1px solid red;
+    }
+}
+head{
+    margin-top: 15rem;
+}
+.button{
+   text-align: center;
+   margin: 2rem;
+  button{
+    margin: 1rem;
+   }
+
+}
+
+body{
+    background-origin: border-box;
+    background-color: slateblue;
+}
+
+.card-title{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #022f54;
+} 
+ 
+.boxsizingBorder{
+    height: auto;
+}

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+    <div class="row" style='height:300px'>
+        <div class="col-12 bgimg">
+            <div style="position: absolute;top:30% ;left:50%;color:#fff;font-weight: 800;font-size: 40px;">
+                <h1>Welcome To DocTourism</h1>
+                <h1>online Reservation for medical tourism</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-signUp container">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputAddress">Company Name</label>
+            <input type="text" class="form-control" id="inputAddress" [(ngModel)]="companyName" placeholder="Jane Doe">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress1">Phone Number</label>
+            <input type="number" class="form-control" id="inputAddress1" [(ngModel)]="phone" placeholder="354 - 3432 - 2343">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputAddress1">Company Website</label>
+            <input type="text" class="form-control" id="inputAddress1" placeholder="name@exapmle.com">
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6 col-sm-12">
+            <label for="inputEmail4">Email</label>
+            <input type="email" [(ngModel)]="email" class="form-control" id="inputEmail4">
+        </div>
+
+        <div class="form-group col-md-6 col-sm-12">
+
+            <label for="inputPassword">Password</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                    <button mat-icon-button matSuffix class="input-group-text" (click)="hide = !hide">
+                        <mat-icon *ngIf="hide">visibility_off</mat-icon>
+                        <mat-icon *ngIf="!hide">visibility</mat-icon>
+                    </button>
+                </div>
+                <input [type]="hide ? 'password' : 'text'" [(ngModel)]="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6 col-sm-12">
+            <label> Choose City </label>
+            <select class="form-control" [(ngModel)]="location" (change)='getAreas($event)'>
+                <option>All</option>
+                <option *ngFor="let c of cities" value={{c.name_en}}>{{c.name_en |titlecase}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group col-md-6 col-sm-12">
+
+            <label> Choose Area </label>
+            <select [(ngModel)]="area" class="form-control">
+                <option>Select area</option>
+                <option *ngFor="let a of areas" value={{a.name_en}}>{{a.name_en |titlecase}}</option>
+            </select>
+
+        </div>
+
+    </div>
+    <mat-hint *ngIf="Error" style="color: red; font-size: .75rem; font-weight: bold;">Ckeck Your Input Data</mat-hint>
+    <mat-hint *ngIf="invalidMail" style="color: red; font-size: .75rem; font-weight: bold;">This Mail already used!</mat-hint>
+
+    <button type="submit" class="btn btn-primary" (click)="register(content)">Register</button>
+</div>
+
+<ng-template #content let-modal>
+
+    <div class="modal-body">
+        <p>You Sign Up Successfully &hellip;</p>
+        <p>Admins Will Approve Your Request &hellip;</p>
+    </div>
+</ng-template>

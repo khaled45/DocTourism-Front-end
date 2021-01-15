@@ -1,0 +1,56 @@
+<footer class="section">
+  <div class="container mt-2">
+    <div class="row m-auto">
+      <div class="col-lg-3">
+          <h6 class="footer-heading text-uppercase text-white">about</h6>
+          <ul class="list-unstyled footer-link mt-2">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Register</a></li>
+          </ul>
+      </div>
+
+      <div class="col-lg-3">
+          <h6 class="footer-heading text-uppercase text-white">links</h6>
+          <ul class="list-unstyled footer-link mt-2">
+            <li><a [routerLink]="[ '/Dregister']">Join Doctourism Doctors </a></li>
+            <li><a [routerLink]="['TravelAgent/SignUp']">Join Doctourism Travel Agent</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Doctors</a></li>
+          </ul>
+      </div>
+
+      <div class="col-lg-3">
+          <h6 class="footer-heading text-uppercase text-white">Contact Us</h6>
+          <ul class="list-unstyled footer-link mt-2">
+            <li>
+              <p style="color: #fff; font-weight: bold;" [cdkCopyToClipboard]="value"><i class="fas fa-envelope"
+                  style="font-size: 1rem; color: white; cursor: pointer;"></i> &nbsp;&nbsp;{{value}}</p> 
+            </li>
+            <li>
+              <p style="color: #fff; font-weight: bold;"><i class="fas fa-phone-volume"
+                  style="font-size: 1rem; color: white;"></i>&nbsp;&nbsp;&nbsp;&nbsp;01225518568</p>
+            </li>
+          </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="footer-heading text-uppercase text-white">follow us</h6>
+        <div class="mt-2">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#"><i class="fab facebook footer-social-icon fa-facebook-f"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#"><i class="fab twitter footer-social-icon fa-twitter"></i></a>
+            </li>
+            <li class="list-inline-item"><a href="#"><i class="fab google footer-social-icon fa-google"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab apple footer-social-icon fa-apple"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-2">
+    <p class="footer-alt mb-0 f-14">2019 © Anup, All Rights Reserved</p>
+  </div>
+</footer>

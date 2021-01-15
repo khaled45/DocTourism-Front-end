@@ -1,0 +1,151 @@
+<div class="container-fluid">
+  <div class="row" style="height: 550px;">
+    <div class="col-12 bgimg">
+      <div
+        style="
+          position: absolute;
+          top: 50%;
+          left: 10%;
+          color: #fff;
+          font-weight: 800;
+          font-size: 40px;
+        "
+      >
+        <h1 style="font-size: 40px; font-weight: 700;">
+          Welcome To DocTourism
+        </h1>
+        <h3 style="font-size: 30px; font-weight: 500; color:gold">
+          Travel Your Treatment
+        </h3>
+      </div>
+      <div style="position: relative; top: 90%; left: 0;">
+        <app-search-bar></app-search-bar>
+      </div>
+    </div>
+  </div>
+  <div class="row my-5 py-5">
+    <div class="col-12">
+      <div class="container">
+        <div class="row mx-auto">
+          <div class="col-md-1"></div>
+          <div class="col-md-4 col-12-sm mx-auto my-3">
+            <img
+              class="img-fluid"
+              src="../../assets/images/718b812c-54fb-44e5-88a8-911eb4a5428d.jpg"
+            />
+          </div>
+          <div class="col-md-6 col-12-sm">
+            <div
+              class="container px-5 my-3 pargraphCard mx-auto text-left overflow-hidden"
+            >
+              <h1 style="font-weight: 900; font-size: 2rem;">
+                Welecome To DocTourism
+              </h1>
+              <h4 style="font-weight: 100; font-size: 1.3rem;">
+                online Reservation for medical tourism
+              </h4>
+              <p
+                class="py-1"
+                style="
+                  word-spacing: 0.2rem;
+                  line-height: 2;
+                  font-weight: 500;
+                  font-size: 1rem;
+                "
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                Lorem Ipsum electronic typesetting, remaining essentially
+                unchanged. It was Lorem Ipsum
+              </p>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-2 py-2 bg-primary">
+    <div class="col-12 text-center mx-auto">
+      <div class="text-center mx-auto my-3">
+        <h1 style="color: #fff; font-weight: bold;">
+          Why Choose The DocTourism ?
+        </h1>
+      </div>
+      <div class="container py-3 mx-auto">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/easy.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/like.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/time.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              class="my-2"
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/experience.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-2 py-2">
+    <div class="col-12 text-center mx-auto">
+      <div class="text-center mx-auto my-3">
+        <h1 style="color: #45abff; font-weight: bold;">
+          Why Choose The DocTourism ?
+        </h1>
+      </div>
+      <div class="container py-3 mx-auto">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%; cursor: pointer;"
+              [routerLink]="['/home']"
+              src="../../assets/icon/select-doctor.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/send-dignos.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/treatment-plan.png"
+            />
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <img
+              class="my-2"
+              style="width: 80%; height: 80%;"
+              src="../../assets/icon/travel.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<i *ngIf="isShow" (click)="gotoTop()" class="far fa-arrow-alt-circle-up"></i>
